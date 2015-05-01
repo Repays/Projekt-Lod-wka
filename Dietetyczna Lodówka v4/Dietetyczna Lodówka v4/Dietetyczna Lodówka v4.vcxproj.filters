@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Jedzenie">
+      <UniqueIdentifier>{cf266f1a-3e7e-460e-b03d-fd24e8222e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Jedzenie">
+      <UniqueIdentifier>{e4a11ffa-ed3d-4e05-ad96-72bf33fb63ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Nabial.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="Napoje.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="Owoce.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="Prowiant.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="Warzywa.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="BazaUzytkownikow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Blad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jedzenie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Magazyn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Uzytkownik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mieso.h">
+      <Filter>Header Files\Jedzenie</Filter>
+    </ClInclude>
+    <ClInclude Include="Stale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BazaUzytkownikow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Magazyn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Uzytkownik.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mieso.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+    <ClCompile Include="Nabial.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+    <ClCompile Include="Napoje.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+    <ClCompile Include="Owoce.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+    <ClCompile Include="Prowiant.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+    <ClCompile Include="Warzywa.cpp">
+      <Filter>Source Files\Jedzenie</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

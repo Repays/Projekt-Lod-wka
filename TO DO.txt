@@ -1,0 +1,5 @@
+1. Zabezpieczenie wartoœci w Jedzenie.h
+2. Dodaæ nazwy produktów jedzenia
+3. Stworzenie klasy Tydzieñ
+4. Stworzenie metod do wyliczania wartoœci od¿ywczych
+5. Stworzenie metod do planowania posi³ków
