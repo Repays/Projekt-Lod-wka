@@ -27,5 +27,4 @@ public:
 	void Dodaj(Jedzenie *obiekt);
 	void Znajdz(string szukany);
 	void Usun(string szukany);
-
 };

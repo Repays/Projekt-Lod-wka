@@ -59,7 +59,7 @@ void Uzytkownik::UstawWzrost(const unsigned int _wzrost)
 		wzrost=_wzrost;
 }
 
-void Uzytkownik::WysietlUzytkownika()
+void Uzytkownik::WysietlUzytkownika() const
 {
 	cout << "Login: " << ZwrocLogin() << endl << "Imie i nazwisko: " << ZwrocImie() << " " << ZwrocNazwisko() << endl << "Wiek: " << ZwrocWiek() << endl << "Wzrost: " << ZwrocWzrost() 
 		<< endl << "Waga: " << ZwrocWaga() << endl << endl;

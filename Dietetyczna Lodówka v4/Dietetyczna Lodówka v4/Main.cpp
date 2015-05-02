@@ -7,44 +7,36 @@ int main()
 {
 	try
 	{
-	BazaUzytkownikow users;
+	/*BazaUzytkownikow users;
 	users.Deserializuj();
 
-	//users.Dodaj();
-	//users.Dodaj();
+	users.Dodaj();
+	users.Dodaj();
 	
-	//users.Znajdz("ALEK");
-	//users.Znajdz("JANUSZ");
-	//users.Znajdz("NI MA GO");
+	users.Znajdz("ALEK");
+	users.Znajdz("JANUSZ");
+	users.Znajdz("NI MA GO");
 
-	//users.Usun("JANUSZ");
+	users.Usun("JANUSZ");
 
-	users.Wyswietl();
+	users.Wyswietl();*/
 	
-
-	vector<Jedzenie*> tab;
-	//Jedzenie *a = new Mieso(1000,10,10,10,500,ml);
-	//Jedzenie *b = new Nabial(1000,10,10,10,500,ml);
-	//Jedzenie *c = new Napoje(1000,10,10,10,500,ml);
-	//Jedzenie *d = new Owoce(1000,10,10,10,500,ml);
-	//Jedzenie *e = new Prowiant(1000,10,10,10,500,ml);
-	//Jedzenie *g = new Warzywa(1000,10,10,10,500,ml);
 
 	Magazyn magazynek;
 
-	/*tab.push_back(a);
-	tab.push_back(b);
-	tab.push_back(c);
-	tab.push_back(d);
-	tab.push_back(e);
-	tab.push_back(g);*/
+	/*Jedzenie *a = new Mieso("szynka",450,34,554,345,432,kg);
+	Jedzenie *b = new Nabial("mleko",100,100,40,130,50,ml);
+	Jedzenie *c = new Napoje("sok jablkowy",430,160,50,210,5500,ml);
+	Jedzenie *d = new Owoce("Grapefruit",70,70,50,30,70,kg);
+	Jedzenie *e = new Prowiant("Ryz",1000,10,10,10,500,kg);
+	Jedzenie *g = new Warzywa("Ziemniak",100,100,100,100,50,kg);	
 
-	//magazynek.Dodaj(a);
-	//magazynek.Dodaj(b);
-	//magazynek.Dodaj(c);
-	//magazynek.Dodaj(d);
-	//magazynek.Dodaj(e);
-	//magazynek.Dodaj(g);
+	magazynek.Dodaj(a);
+	magazynek.Dodaj(b);
+	magazynek.Dodaj(c);
+	magazynek.Dodaj(d);
+	magazynek.Dodaj(e);
+	magazynek.Dodaj(g);*/
 
 	magazynek.Deserializuj();
 

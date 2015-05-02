@@ -32,5 +32,5 @@ public:
 	float ZwrocWaga() const {return waga;}
 	unsigned int ZwrocWzrost() const {return wzrost;}
 
-	void WysietlUzytkownika();
+	void WysietlUzytkownika() const;
 };

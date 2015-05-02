@@ -9,10 +9,10 @@ void Magazyn::Serializuj()
 		for(int i=0; i<bazaJedzenia.size(); i++)
 		{
 			plik << bazaJedzenia[i]->ZwrocId() << ";" << bazaJedzenia[i]->ZwrocKalorie() << ";" << bazaJedzenia[i]->ZwrocBialko() << ";" << bazaJedzenia[i]->ZwrocWeglowodany() 
-				<< ";" << bazaJedzenia[i]->ZwrocTluszcze() << ";" << bazaJedzenia[i]->ZwrocIlosc() << ";" << bazaJedzenia[i]->ZwrocJednostka() << endl;
+				<< ";" << bazaJedzenia[i]->ZwrocTluszcze() << ";" << bazaJedzenia[i]->ZwrocIlosc() << ";" << bazaJedzenia[i]->ZwrocJednostka() << ";" << bazaJedzenia[i]->ZwrocNazwa() << endl;
 		}
 		plik.close();
-		printf("Baza uzytkownikow zostala zapisana!\n");
+		printf("Baza jedzenia zostala zapisana!\n");
 	}
 	else
 		printf("Blad z zapisem");
@@ -20,7 +20,7 @@ void Magazyn::Serializuj()
 
 void Magazyn::Deserializuj()
 {
-	string dana1, dana2, dana3, dana4, dana5, dana6, dana7;
+	string dana1, dana2, dana3, dana4, dana5, dana6, dana7, dana8;
 	char separator = ';';
 	char koniec = '\n';
 	fstream plik;
@@ -35,13 +35,17 @@ void Magazyn::Deserializuj()
 			getline(plik,dana4,separator); // weglowodany
 			getline(plik,dana5,separator); // tluszcze
 			getline(plik,dana6,separator);    // ilosc
-			getline(plik,dana7,koniec); // jednostka
+			getline(plik,dana7,separator); // jednostka
+			getline(plik,dana8,koniec); // nazwa
 			Jedzenie *obiekt;
+
+			if(dana1!="")
+			{
 			switch(atoi(dana1.c_str()))
 			{
 			case 0:
 				{
-						obiekt = new Mieso(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Mieso(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
@@ -49,39 +53,40 @@ void Magazyn::Deserializuj()
 				{
 					if(atoi(dana7.c_str())==0)
 					{
-						obiekt = new Nabial(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 					}
 					else
 					{
-						obiekt = new Nabial(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),ml);
+						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),ml);
 					}
 					bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 2:
 				{
-						obiekt = new Napoje(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Napoje(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 3:
 				{
-						obiekt = new Owoce(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Owoce(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 						bazaJedzenia.push_back(obiekt);
 					
 				}break;
 
 			case 4:
 				{
-						obiekt = new Prowiant(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Prowiant(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 5:
 				{
-						obiekt = new Warzywa(atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Warzywa(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
 						bazaJedzenia.push_back(obiekt);
 				}break;
+			}
 			}
 		}
 	}

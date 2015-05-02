@@ -5,7 +5,7 @@
 class Mieso : public Jedzenie
 {
 public:
-	Mieso(const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka);
+	Mieso(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka);
 
 	void Wyswietl();
 };
