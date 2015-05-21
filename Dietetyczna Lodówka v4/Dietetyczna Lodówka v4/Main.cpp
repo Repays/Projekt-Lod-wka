@@ -7,9 +7,9 @@ int main()
 {
 	try
 	{
-	/*BazaUzytkownikow users;
+	BazaUzytkownikow users;
 	users.Deserializuj();
-
+	/*
 	users.Dodaj();
 	users.Dodaj();
 	
@@ -18,8 +18,8 @@ int main()
 	users.Znajdz("NI MA GO");
 
 	users.Usun("JANUSZ");
-
-	users.Wyswietl();*/
+	*/
+	users.Wyswietl();
 	
 
 	Magazyn magazynek;
