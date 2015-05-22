@@ -1,5 +1,3 @@
-* Stworzenie klasy Tydzieñ (?)
-
 * Stworzenie metod do wyliczania wartoœci od¿ywczych
 
 * Stworzenie metod do planowania posi³ków

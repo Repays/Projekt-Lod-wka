@@ -144,7 +144,7 @@ void BazaUzytkownikow::Usun(string szukany)
 				znaleziono=true;
 			} else
 				j++;
-			}
+		}
 	}
 	if(znaleziono==false)
 		printf("Nie znaleziono uzytkownika o loginie %s !\n\n",szukany.c_str());
@@ -158,16 +158,16 @@ void BazaUzytkownikow::Usun(string szukany)
 	int j=0;
 	for(t=listaPracownikow.begin();t!=listaPracownikow.end();t++)
 	{
-		if (i == t->getId())
-		{
-			listaPracownikow[j]=listaPracownikow[listaPracownikow.size()-1];
-			listaPracownikow.pop_back();
-			znaleziona=true;
-		} else
-			j++;
+	if (i == t->getId())
+	{
+	listaPracownikow[j]=listaPracownikow[listaPracownikow.size()-1];
+	listaPracownikow.pop_back();
+	znaleziona=true;
+	} else
+	j++;
 	}
 	if(znaleziona==false)
-		cout << "Podano bledne ID pracownika!";
+	cout << "Podano bledne ID pracownika!";
 
 
 	*/
@@ -188,4 +188,55 @@ void BazaUzytkownikow::Znajdz(string szukany)
 	}
 	if(znaleziona==false)
 		printf("Nie znaleziono uzytkownika o loginie %s !\n\n",szukany.c_str());
+}
+
+bool BazaUzytkownikow::Logowanie()
+{
+	string login;
+	int menu=0;
+	bool zalogowano = false;
+
+	if(bazaUzytkownikow.size()==0)
+	{
+		cout << "Nie stworzono zadnego uzytkownika!\n" << endl;
+		Dodaj();
+	}
+	else
+	{
+		do
+		{
+			cout << "Wybierz 1. aby dodac nowego uzytkownika" << endl << "Wybierz 2. aby wprowadzic swoj login";
+			cin >> menu;
+
+			switch(menu)
+			{
+			case 1:
+				{
+					Dodaj();
+					zalogowano = true;
+				}break;
+
+			case 2:
+				{
+					cout << "Podaj swoj login: ";
+					cin >> login;
+					for(int i=0; i<bazaUzytkownikow.size(); i++)
+					{
+						if(login == bazaUzytkownikow[i].ZwrocLogin())
+						{
+							zalogowano = true;
+							cout << "Zalogowano!" << endl;
+							break;
+						}
+					}
+					if(zalogowano == false)
+					{
+						cout << "Wpisany login nie istnieje" << endl;
+					}
+				}break;
+			}
+		}while(zalogowano==false);
+
+		return zalogowano;
+	}
 }

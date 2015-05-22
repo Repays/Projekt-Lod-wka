@@ -16,4 +16,5 @@ public:
 	void Dodaj();
 	void Znajdz(string szukany);
 	void Usun(string szukany);
+	bool Logowanie();
 };

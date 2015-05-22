@@ -7,16 +7,23 @@ int main()
 {
 	try
 	{
-		/*
 		BazaUzytkownikow users;
+		users.Deserializuj();
+		//users.Wyswietl();
+		users.Logowanie();
+		//users.Serializuj();
+
+
+
+
+		
+		/*
 		users.Deserializuj();
 
 		users.Dodaj();
 		users.Dodaj();
 
 		users.Znajdz("ALEK");
-		users.Znajdz("JANUSZ");
-		users.Znajdz("NI MA GO");
 
 		users.Usun("JANUSZ");
 
@@ -32,7 +39,6 @@ int main()
 		Jedzenie *e = new Prowiant("Ryz",1000,10,10,10,500,kg,obiad);
 		Jedzenie *g = new Warzywa("Ziemniak",100,100,100,100,50,kg,obiad);	
 
-
 		magazynek.Dodaj(a);
 		magazynek.Dodaj(b);
 		magazynek.Dodaj(c);
@@ -41,11 +47,9 @@ int main()
 		magazynek.Dodaj(g);*/
 
 		//magazynek.Serializuj();
-		magazynek.Deserializuj();
-
+		//magazynek.Deserializuj();
 		//magazynek.Wyswietl();
-
-		magazynek.Filtruj();
+		//magazynek.Filtruj();
 
 
 	}catch(Blad blad)
