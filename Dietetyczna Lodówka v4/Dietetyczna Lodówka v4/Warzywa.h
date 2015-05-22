@@ -5,7 +5,7 @@
 class Warzywa : public Jedzenie
 {
 public:
-	Warzywa(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka);
+	Warzywa(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka, const posilek danie);
 
 	void Wyswietl();
 };

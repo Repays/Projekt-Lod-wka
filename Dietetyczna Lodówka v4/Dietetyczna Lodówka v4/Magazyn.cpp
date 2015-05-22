@@ -9,7 +9,7 @@ void Magazyn::Serializuj()
 		for(int i=0; i<bazaJedzenia.size(); i++)
 		{
 			plik << bazaJedzenia[i]->ZwrocId() << ";" << bazaJedzenia[i]->ZwrocKalorie() << ";" << bazaJedzenia[i]->ZwrocBialko() << ";" << bazaJedzenia[i]->ZwrocWeglowodany() 
-				<< ";" << bazaJedzenia[i]->ZwrocTluszcze() << ";" << bazaJedzenia[i]->ZwrocIlosc() << ";" << bazaJedzenia[i]->ZwrocJednostka() << ";" << bazaJedzenia[i]->ZwrocNazwa() << endl;
+				<< ";" << bazaJedzenia[i]->ZwrocTluszcze() << ";" << bazaJedzenia[i]->ZwrocIlosc() << ";" << bazaJedzenia[i]->ZwrocJednostka() << ";" << bazaJedzenia[i]->ZwrocNazwa() << ";" << bazaJedzenia[i]->ZwrocDanie() << endl;
 		}
 		plik.close();
 		printf("Baza jedzenia zostala zapisana!\n");
@@ -20,7 +20,8 @@ void Magazyn::Serializuj()
 
 void Magazyn::Deserializuj()
 {
-	string dana1, dana2, dana3, dana4, dana5, dana6, dana7, dana8;
+	string dana1, dana2, dana3, dana4, dana5, dana6, dana7, dana8, dana9;
+	posilek danie;
 	char separator = ';';
 	char koniec = '\n';
 	fstream plik;
@@ -34,10 +35,20 @@ void Magazyn::Deserializuj()
 			getline(plik,dana3,separator); // bialko
 			getline(plik,dana4,separator); // weglowodany
 			getline(plik,dana5,separator); // tluszcze
-			getline(plik,dana6,separator);    // ilosc
+			getline(plik,dana6,separator); // ilosc
 			getline(plik,dana7,separator); // jednostka
-			getline(plik,dana8,koniec); // nazwa
+			getline(plik,dana8,separator); // nazwa
+			getline(plik,dana9,koniec); // danie
 			Jedzenie *obiekt;
+
+			if(atoi(dana9.c_str())==0)
+				danie=sniadanie;
+			if(atoi(dana9.c_str())==1)
+				danie=obiad;
+			if(atoi(dana9.c_str())==2)
+				danie=kolacja;
+			if(atoi(dana9.c_str())==3)
+				danie=sniad_kol;
 
 			if(dana1!="")
 			{
@@ -45,7 +56,7 @@ void Magazyn::Deserializuj()
 			{
 			case 0:
 				{
-						obiekt = new Mieso(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Mieso(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
@@ -53,37 +64,37 @@ void Magazyn::Deserializuj()
 				{
 					if(atoi(dana7.c_str())==0)
 					{
-						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 					}
 					else
 					{
-						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),ml);
+						obiekt = new Nabial(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),ml,danie);
 					}
 					bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 2:
 				{
-						obiekt = new Napoje(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Napoje(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 3:
 				{
-						obiekt = new Owoce(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Owoce(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 						bazaJedzenia.push_back(obiekt);
 					
 				}break;
 
 			case 4:
 				{
-						obiekt = new Prowiant(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Prowiant(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 
 			case 5:
 				{
-						obiekt = new Warzywa(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg);
+						obiekt = new Warzywa(dana8.c_str(),atoi(dana2.c_str()),atof(dana3.c_str()),atof(dana4.c_str()),atof(dana5.c_str()),atoi(dana6.c_str()),kg,danie);
 						bazaJedzenia.push_back(obiekt);
 				}break;
 			}
@@ -106,4 +117,35 @@ void Magazyn::Wyswietl()
 	cout << "\t\tChuja" << endl;
 	for(int i=0; i<bazaJedzenia.size(); i++)
 		bazaJedzenia[i]->Wyswietl();
+}
+
+void Magazyn::Filtruj()
+{
+	printf("Jedzenie do sniadania\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(sniadanie==bazaJedzenia[i]->ZwrocDanie())
+			bazaJedzenia[i]->Wyswietl();
+	}
+
+		printf("\n\n\nJedzenie do obiadu\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(obiad==bazaJedzenia[i]->ZwrocDanie())
+			bazaJedzenia[i]->Wyswietl();
+	}
+
+		printf("\n\n\nJedzenie do kolacji\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(kolacja==bazaJedzenia[i]->ZwrocDanie())
+			bazaJedzenia[i]->Wyswietl();
+	}
+
+		printf("\n\n\nJedzenie do sniadania i obiadu\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(sniad_kol==bazaJedzenia[i]->ZwrocDanie())
+			bazaJedzenia[i]->Wyswietl();
+	}
 }

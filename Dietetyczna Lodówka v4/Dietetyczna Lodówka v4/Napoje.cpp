@@ -1,9 +1,9 @@
 #include "Napoje.h"
 
-Napoje:: Napoje(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka)
+Napoje:: Napoje(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka, const posilek danie)
 {
 	UstawId(napoje);
-	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka);
+	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka, danie);
 }
 
 void Napoje::Wyswietl()

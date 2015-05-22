@@ -1,9 +1,9 @@
 #include "Warzywa.h"
 
-Warzywa:: Warzywa(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka)
+Warzywa:: Warzywa(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka, const posilek danie)
 {
 	UstawId(warzywa);
-	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka);
+	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka, danie);
 }
 
 void Warzywa::Wyswietl()
