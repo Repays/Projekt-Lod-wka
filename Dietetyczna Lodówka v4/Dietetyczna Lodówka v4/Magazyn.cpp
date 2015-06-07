@@ -121,31 +121,46 @@ void Magazyn::Wyswietl()
 
 void Magazyn::Filtruj()
 {
-	printf("Jedzenie do sniadania\n");
+	printf("\tMieso\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)
 	{
-		if(sniadanie==bazaJedzenia[i]->ZwrocDanie())
+		if(mieso==bazaJedzenia[i]->ZwrocId())
 			bazaJedzenia[i]->Wyswietl();
 	}
 
-		printf("\n\n\nJedzenie do obiadu\n");
+	printf("\n\tNabial\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)
 	{
-		if(obiad==bazaJedzenia[i]->ZwrocDanie())
+		if(nabial==bazaJedzenia[i]->ZwrocId())
 			bazaJedzenia[i]->Wyswietl();
 	}
 
-		printf("\n\n\nJedzenie do kolacji\n");
+	printf("\n\tNapoje\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)
 	{
-		if(kolacja==bazaJedzenia[i]->ZwrocDanie())
+		if(napoje==bazaJedzenia[i]->ZwrocId())
 			bazaJedzenia[i]->Wyswietl();
 	}
 
-		printf("\n\n\nJedzenie do sniadania i obiadu\n");
+	printf("\n\tOwoce\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)
 	{
-		if(sniad_kol==bazaJedzenia[i]->ZwrocDanie())
+		if(owoce==bazaJedzenia[i]->ZwrocId())
+			bazaJedzenia[i]->Wyswietl();
+	}
+
+	printf("\n\tProwiant\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(suchy_prowiant==bazaJedzenia[i]->ZwrocId())
+			bazaJedzenia[i]->Wyswietl();
+	}
+
+
+	printf("\n\tWarzywa\n");
+	for(int i=0; i<bazaJedzenia.size(); i++)
+	{
+		if(warzywa==bazaJedzenia[i]->ZwrocId())
 			bazaJedzenia[i]->Wyswietl();
 	}
 }

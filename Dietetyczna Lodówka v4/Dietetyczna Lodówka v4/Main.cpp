@@ -9,7 +9,7 @@ int main()
 	{
 		BazaUzytkownikow users;
 		users.Deserializuj();
-		//users.Wyswietl();
+		users.Wyswietl();
 		users.Logowanie();
 		//users.Serializuj();
 
@@ -47,9 +47,9 @@ int main()
 		magazynek.Dodaj(g);*/
 
 		//magazynek.Serializuj();
-		//magazynek.Deserializuj();
+		magazynek.Deserializuj();
 		//magazynek.Wyswietl();
-		//magazynek.Filtruj();
+		magazynek.Filtruj();
 
 
 	}catch(Blad blad)

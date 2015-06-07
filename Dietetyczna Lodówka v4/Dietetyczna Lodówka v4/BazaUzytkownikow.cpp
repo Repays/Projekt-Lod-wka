@@ -205,7 +205,7 @@ bool BazaUzytkownikow::Logowanie()
 	{
 		do
 		{
-			cout << "Wybierz 1. aby dodac nowego uzytkownika" << endl << "Wybierz 2. aby wprowadzic swoj login";
+			cout << "Wybierz 1. aby dodac nowego uzytkownika" << endl << "Wybierz 2. aby wprowadzic swoj login" << endl << "Twoj wybor: ";
 			cin >> menu;
 
 			switch(menu)
@@ -231,6 +231,7 @@ bool BazaUzytkownikow::Logowanie()
 					}
 					if(zalogowano == false)
 					{
+						system("CLS");
 						cout << "Wpisany login nie istnieje" << endl;
 					}
 				}break;
