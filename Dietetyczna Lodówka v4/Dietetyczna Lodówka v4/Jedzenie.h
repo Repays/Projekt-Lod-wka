@@ -14,10 +14,9 @@ protected:
 	float tluszcze;
 	int ilosc;
 	jednoski jednostka;
-	posilek danie;
 
 public:
-	virtual void Inicjalizacja(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka, const posilek danie)
+	virtual void Inicjalizacja(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka)
 	{
 		UstawNazwa(nazwa);
 		UstawKalorie(kalorie);
@@ -26,7 +25,6 @@ public:
 		UstawTluszcze(tluszcze);
 		UstawJednostka(jednostka);
 		UstawIlosc(ilosc);
-		UstawDanie(danie);
 	}
 
 	string ZwrocNazwa() const {return nazwa;}
@@ -37,7 +35,6 @@ public:
 	int ZwrocIlosc() const {return ilosc;}
 	jednoski ZwrocJednostka() const {return jednostka;}
 	ID ZwrocId() const {return id;}
-	posilek ZwrocDanie() const {return danie;}
 
 	void UstawNazwa(const string nazwa)
 	{
@@ -101,14 +98,6 @@ public:
 			this->id = id;
 		else
 			throw Blad("Bledna wartosc id");
-	}
-
-	void UstawDanie(const posilek danie)
-	{
-		if(danie>=0 && danie<=3)
-			this->danie=danie;
-		else
-			throw Blad("Bledna wartosc rodzaju dania!");
 	}
 
 	virtual void Wyswietl() =0;

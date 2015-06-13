@@ -27,6 +27,7 @@ void Menu::Start(BazaUzytkownikow baza)
 				cout << "Podaj login do usuniecia" << endl;
 				cin >> login;
 				baza.Usun(login);
+				baza.Serializuj();
 				system("CLS");
 				break;
 		}
@@ -39,8 +40,10 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 	int wybor;
 	int ilosc;
 	string nazwa;
+	uzytkownik.Deserializuj();
 	do
 	{
+
 		cout << "1. Dodaj produkt" << endl;
 		cout << "2. Zobacz zawartosc lodowki" << endl;
 		cout << "3. Twoj kalendarz" << endl;
@@ -52,12 +55,12 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 		{
 		case 1:
 			system("CLS");
-			DodajJedzenie(uzytkownik);
+			DodajJedzenie(&uzytkownik);
 			system("CLS");
 			break;
 		case 2:
 			system("CLS");
-			uzytkownik.ZwrocMagazyn().Filtruj(uzytkownik.ZwrocLogin());
+			uzytkownik.Filtruj();
 			break;
 
 		case 3:
@@ -66,7 +69,8 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 			system("CLS");
 			break;
 		case 4:
-			uzytkownik.ZwrocMagazyn().Filtruj(uzytkownik.ZwrocLogin());
+			system("CLS");
+			uzytkownik.Filtruj();
 			cout << "Co chcesz usunac?" << endl;
 			cin >> nazwa;
 			cout << "Ile?" << endl;
@@ -75,35 +79,34 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 			
 
 	
-			for(int i=0; i<uzytkownik.ZwrocMagazyn().getBaza().size(); i++)
+			for(int i=0; i<uzytkownik.getBaza().size(); i++)
 			{
-				if(uzytkownik.ZwrocMagazyn().getBaza()[i]->ZwrocNazwa() == nazwa)
+				if(uzytkownik.getBaza()[i]->ZwrocNazwa() == nazwa)
 				{
-					if(uzytkownik.ZwrocMagazyn().getBaza()[i]->ZwrocIlosc() < ilosc)
+					if(uzytkownik.getBaza()[i]->ZwrocIlosc() < ilosc)
 					{
 						cout<<"Nie masz tyle produktu"<<endl;
+						break;
 					}
-					else if(uzytkownik.ZwrocMagazyn().getBaza()[i]->ZwrocIlosc() == ilosc)
+					else if(uzytkownik.getBaza()[i]->ZwrocIlosc() == ilosc)
 					{
-						uzytkownik.ZwrocMagazyn().getBaza().erase(uzytkownik.ZwrocMagazyn().getBaza().begin()+i);
+						uzytkownik.getBaza().erase(uzytkownik.getBaza().begin()+i);
+						uzytkownik.Serializuj();
 					}
-					else if(uzytkownik.ZwrocMagazyn().getBaza()[i]->ZwrocIlosc() > ilosc)
+					else if(uzytkownik.getBaza()[i]->ZwrocIlosc() > ilosc)
 					{
-						uzytkownik.ZwrocMagazyn().getBaza()[i]->UstawIlosc(uzytkownik.ZwrocMagazyn().getBaza()[i]->ZwrocIlosc()-ilosc);
+						uzytkownik.getBaza()[i]->UstawIlosc(uzytkownik.getBaza()[i]->ZwrocIlosc()-ilosc);
+						uzytkownik.Serializuj();
 					}
 				}
 			}
-			
-			uzytkownik.ZwrocMagazyn().Serializuj(uzytkownik.ZwrocLogin());
-
 			system("CLS");
-			break;
 		}
 	}
-	while(wybor == 1 || wybor == 2 || wybor == 3 );
+	while(wybor == 1 || wybor == 2 || wybor == 3 ||  wybor == 4 );
 }
 
-void Menu::DodajJedzenie(Uzytkownik uzytkownik)
+void Menu::DodajJedzenie(Uzytkownik *uzytkownik)
 {
 	int wybor;
 	string nazwa;
@@ -113,8 +116,6 @@ void Menu::DodajJedzenie(Uzytkownik uzytkownik)
 	float tluszcze;
 	int ilosc;
 	int jednostka;
-
-	uzytkownik.ZwrocMagazyn().Deserializuj(uzytkownik.ZwrocLogin());
 
 	cout << "1. Mieso" << endl;
 	cout << "2. Nabial" << endl;
@@ -139,39 +140,40 @@ void Menu::DodajJedzenie(Uzytkownik uzytkownik)
 	switch(wybor)
 	{
 	case 1:
-		uzytkownik.ZwrocMagazyn().Dodaj(new Mieso(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg, obiad), uzytkownik.ZwrocLogin());
+		uzytkownik->Dodaj(new Mieso(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));
 		system("CLS");
 		break;
 	case 2:
 		cout << "Jednostka  =  0.kg  /  1.ml" << endl;
 		cin  >> jednostka;
 		if(jednostka == 0)
-			uzytkownik.ZwrocMagazyn().Dodaj(new Nabial(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg, obiad), uzytkownik.ZwrocLogin());
+			uzytkownik->Dodaj(new Nabial(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));
 		if(jednostka == 1)
-			uzytkownik.ZwrocMagazyn().Dodaj(new Nabial(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, ml, obiad),uzytkownik.ZwrocLogin());
+			uzytkownik->Dodaj(new Nabial(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, ml));
 
 		system("CLS");
 		break;
 
 	case 3:
-		uzytkownik.ZwrocMagazyn().Dodaj(new Napoje(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, ml, obiad),uzytkownik.ZwrocLogin());
+		uzytkownik->Dodaj(new Napoje(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, ml));
 		system("CLS");
 		break;
 
 	case 4:
-		uzytkownik.ZwrocMagazyn().Dodaj(new Owoce(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg, obiad),uzytkownik.ZwrocLogin());
+		uzytkownik->Dodaj(new Owoce(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));
 
 		system("CLS");
 		break;
 	case 5:
-		uzytkownik.ZwrocMagazyn().Dodaj(new Prowiant(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg, obiad),uzytkownik.ZwrocLogin());
+		uzytkownik->Dodaj(new Prowiant(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));
 		system("CLS");
 		break;
 
 	case 6:
-		uzytkownik.ZwrocMagazyn().Dodaj(new Warzywa(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg, obiad),uzytkownik.ZwrocLogin());
+		uzytkownik->Dodaj(new Warzywa(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));
 		system("CLS");
 		break;
 	}
+	uzytkownik->Serializuj();
 
 }

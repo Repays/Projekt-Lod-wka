@@ -1,9 +1,9 @@
 #include "Nabial.h"
 
-Nabial:: Nabial(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka, const posilek danie)
+Nabial:: Nabial(const string nazwa, const int kalorie,const float bialko,const float weglowodany,const float tluszcze,const int ilosc,const jednoski jednostka)
 {
 	UstawId(nabial);
-	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka, danie);
+	Inicjalizacja(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, jednostka);
 }
 
 void Nabial::Wyswietl()

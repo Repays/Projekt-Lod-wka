@@ -19,5 +19,5 @@ public:
 	Menu(){};
 	void Start(BazaUzytkownikow baza);
 	void Zalogowany(Uzytkownik uzytkownik);
-	void DodajJedzenie(Uzytkownik uzytkownik);
+	void DodajJedzenie(Uzytkownik *uzytkownik);
 };

@@ -17,7 +17,8 @@ private:
 	unsigned int wiek;
 	float waga;
 	unsigned int wzrost;
-	Magazyn *magazyn;
+	vector<Jedzenie*> bazaJedzenia;
+
 public:
 	Uzytkownik(const string _imie, const string _nazwisko, const string _login, const unsigned int _wiek, const float _waga, const unsigned int _wzrost);
 	Uzytkownik(){};
@@ -34,7 +35,17 @@ public:
 	unsigned int ZwrocWiek() const {return wiek;}
 	float ZwrocWaga() const {return waga;}
 	unsigned int ZwrocWzrost() const {return wzrost;}
-	Magazyn ZwrocMagazyn() const {return *magazyn;}
 
 	void WysietlUzytkownika() const;
+
+
+	void Serializuj();
+	void Deserializuj();
+	void Dodaj(Jedzenie *obiekt);
+	void Usun(string szukany);
+	void Filtruj();
+	vector<Jedzenie*> getBaza() const {return bazaJedzenia;}
+
+	float IleKalorii();
+
 };

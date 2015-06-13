@@ -69,6 +69,7 @@
     <ClInclude Include="Nabial.h" />
     <ClInclude Include="Napoje.h" />
     <ClInclude Include="Owoce.h" />
+    <ClInclude Include="Plan.h" />
     <ClInclude Include="Prowiant.h" />
     <ClInclude Include="Stale.h" />
     <ClInclude Include="Uzytkownik.h" />
@@ -84,6 +85,7 @@
     <ClCompile Include="Nabial.cpp" />
     <ClCompile Include="Napoje.cpp" />
     <ClCompile Include="Owoce.cpp" />
+    <ClCompile Include="Plan.cpp" />
     <ClCompile Include="Prowiant.cpp" />
     <ClCompile Include="Uzytkownik.cpp" />
     <ClCompile Include="Warzywa.cpp" />
