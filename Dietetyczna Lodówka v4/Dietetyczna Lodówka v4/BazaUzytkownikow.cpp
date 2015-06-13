@@ -78,6 +78,8 @@ void BazaUzytkownikow::Dodaj()
 			poprawny=true;
 	}while(poprawny==false);
 
+
+
 	do
 	{
 		cout<< "Podaj imie: ";
@@ -190,11 +192,11 @@ void BazaUzytkownikow::Znajdz(string szukany)
 		printf("Nie znaleziono uzytkownika o loginie %s !\n\n",szukany.c_str());
 }
 
-bool BazaUzytkownikow::Logowanie()
+int BazaUzytkownikow::Logowanie()
 {
 	string login;
 	int menu=0;
-	bool zalogowano = false;
+	int zalogowano = -2;
 
 	if(bazaUzytkownikow.size()==0)
 	{
@@ -203,41 +205,42 @@ bool BazaUzytkownikow::Logowanie()
 	}
 	else
 	{
-		do
+		cout << "Wybierz 1. Dodaj uzytkownika" << endl << "Wybierz 2. Zaloguj sie" << endl << "Inne. aby wyjsc";
+		cin >> menu;
+		system("CLS");
+		switch(menu)
 		{
-			cout << "Wybierz 1. aby dodac nowego uzytkownika" << endl << "Wybierz 2. aby wprowadzic swoj login" << endl << "Twoj wybor: ";
-			cin >> menu;
-
-			switch(menu)
+		case 1:
 			{
-			case 1:
-				{
-					Dodaj();
-					zalogowano = true;
-				}break;
+				Dodaj();
+				Serializuj();
+				zalogowano = bazaUzytkownikow.size()-1;
+			}break;
 
-			case 2:
+		case 2:
+			{
+				cout << "Podaj swoj login: ";
+				cin >> login;
+				for(int i=0; i<bazaUzytkownikow.size(); i++)
 				{
-					cout << "Podaj swoj login: ";
-					cin >> login;
-					for(int i=0; i<bazaUzytkownikow.size(); i++)
+					if(login == bazaUzytkownikow[i].ZwrocLogin())
 					{
-						if(login == bazaUzytkownikow[i].ZwrocLogin())
-						{
-							zalogowano = true;
-							cout << "Zalogowano!" << endl;
-							break;
-						}
+						zalogowano = i;
+						cout << "Zalogowano!" << endl;
+						bazaUzytkownikow[i].WysietlUzytkownika();
+						break;
 					}
-					if(zalogowano == false)
-					{
-						system("CLS");
-						cout << "Wpisany login nie istnieje" << endl;
-					}
-				}break;
-			}
-		}while(zalogowano==false);
+				}
+				if(zalogowano == -2)
+				{
+					cout << "Wpisany login nie istnieje" << endl;
+				}
 
-		return zalogowano;
+			}break;
+		}
+		if(menu == 1 || menu == 2)
+			return zalogowano;
+		else
+			return -1;
 	}
 }

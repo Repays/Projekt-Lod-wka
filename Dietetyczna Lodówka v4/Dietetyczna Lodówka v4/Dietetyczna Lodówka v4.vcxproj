@@ -64,6 +64,7 @@
     <ClInclude Include="Blad.h" />
     <ClInclude Include="Jedzenie.h" />
     <ClInclude Include="Magazyn.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Mieso.h" />
     <ClInclude Include="Nabial.h" />
     <ClInclude Include="Napoje.h" />
@@ -78,6 +79,7 @@
     <ClCompile Include="Blad.cpp" />
     <ClCompile Include="Magazyn.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Mieso.cpp" />
     <ClCompile Include="Nabial.cpp" />
     <ClCompile Include="Napoje.cpp" />

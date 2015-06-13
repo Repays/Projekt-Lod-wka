@@ -9,5 +9,3 @@
 * Bool czy otwarty w nabiale i w napojach
 
 * W tygodniu sprawdzanie, czy nie wychodzi poza zakres
-
-* DATA DO OGARNIÊCIA

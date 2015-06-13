@@ -16,5 +16,6 @@ public:
 	void Dodaj();
 	void Znajdz(string szukany);
 	void Usun(string szukany);
-	bool Logowanie();
+	Uzytkownik getUzytkownik(int i){return bazaUzytkownikow[i];};
+	int Logowanie();
 };

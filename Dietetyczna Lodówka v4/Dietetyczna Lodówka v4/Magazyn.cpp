@@ -1,9 +1,12 @@
 #include "Magazyn.h"
 
-void Magazyn::Serializuj()
+void Magazyn::Serializuj(string login)
 {
+	string temp = "pliki//";
+	temp+=login;
+	temp+= ".csv";
 	fstream plik;
-	plik.open("pliki//MagazynJedzenia.csv",std::ios::out);
+	plik.open(temp,std::ios::out);
 	if(plik!=0)
 	{
 		for(int i=0; i<bazaJedzenia.size(); i++)
@@ -18,14 +21,19 @@ void Magazyn::Serializuj()
 		printf("Blad z zapisem");
 }
 
-void Magazyn::Deserializuj()
+void Magazyn::Deserializuj(string login)
 {
+
+	string temp = "pliki//";
+	temp += login;
+	temp += ".csv";
+
 	string dana1, dana2, dana3, dana4, dana5, dana6, dana7, dana8, dana9;
 	posilek danie;
 	char separator = ';';
 	char koniec = '\n';
 	fstream plik;
-	plik.open("pliki//MagazynJedzenia.csv");
+	plik.open(temp);
 	if(plik!=0)
 	{
 		while(!plik.eof())
@@ -107,9 +115,10 @@ void Magazyn::Deserializuj()
 }
 
 
-void Magazyn::Dodaj(Jedzenie *obiekt)
+void Magazyn::Dodaj(Jedzenie *obiekt, string login)
 {
 	bazaJedzenia.push_back(obiekt);
+	Serializuj(login);
 }
 
 void Magazyn::Wyswietl()
@@ -119,8 +128,9 @@ void Magazyn::Wyswietl()
 		bazaJedzenia[i]->Wyswietl();
 }
 
-void Magazyn::Filtruj()
+void Magazyn::Filtruj(string login)
 {
+	Deserializuj(login);
 	printf("\tMieso\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)
 	{
@@ -155,7 +165,6 @@ void Magazyn::Filtruj()
 		if(suchy_prowiant==bazaJedzenia[i]->ZwrocId())
 			bazaJedzenia[i]->Wyswietl();
 	}
-
 
 	printf("\n\tWarzywa\n");
 	for(int i=0; i<bazaJedzenia.size(); i++)

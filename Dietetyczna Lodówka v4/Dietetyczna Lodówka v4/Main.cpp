@@ -1,19 +1,22 @@
 #include "BazaUzytkownikow.h"
 #include "Blad.h"
 #include "Magazyn.h"
+#include "Menu.h"
 using namespace std;
 
 int main()
 {
 	try
 	{
+		
 		BazaUzytkownikow users;
 		users.Deserializuj();
-		users.Wyswietl();
-		users.Logowanie();
+		Menu menu;
+		//users.Wyswietl();
+		//users.Logowanie();
 		//users.Serializuj();
 
-
+		menu.Start(users);
 
 
 		
@@ -30,7 +33,7 @@ int main()
 		users.Wyswietl();
 		*/
 
-		Magazyn magazynek;
+		//Magazyn magazynek;
 
 		/*Jedzenie *a = new Mieso("szynka",450,34,554,345,432,kg,sniad_kol);
 		Jedzenie *b = new Nabial("mleko",100,100,40,130,50,ml,sniad_kol);
@@ -47,9 +50,9 @@ int main()
 		magazynek.Dodaj(g);*/
 
 		//magazynek.Serializuj();
-		magazynek.Deserializuj();
+		//magazynek.Deserializuj();
 		//magazynek.Wyswietl();
-		magazynek.Filtruj();
+		//magazynek.Filtruj();
 
 
 	}catch(Blad blad)

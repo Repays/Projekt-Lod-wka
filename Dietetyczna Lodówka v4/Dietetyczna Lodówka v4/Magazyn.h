@@ -21,11 +21,13 @@ private:
 	vector<Jedzenie*> bazaJedzenia;
 
 public:
-	void Serializuj();
-	void Deserializuj();
+	Magazyn(string login){Deserializuj(login);};
+	void Serializuj(string login);
+	void Deserializuj(string login);
 	void Wyswietl();
-	void Dodaj(Jedzenie *obiekt);
+	void Dodaj(Jedzenie *obiekt, string login);
 	void Znajdz(string szukany);
 	void Usun(string szukany);
-	void Filtruj();
+	void Filtruj(string login);
+	vector<Jedzenie*> getBaza(){return bazaJedzenia;}
 };
