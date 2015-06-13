@@ -6,12 +6,13 @@ void Menu::Start(BazaUzytkownikow baza)
 	int wybor;
 	string login;
 	int numer;
-	cout << "Witaj w programie Dietetyczna lodówka" << endl;
+	cout << "\tWitaj w programie Dietetyczna lodowka" << endl << endl;
 	do
 	{
 		cout << "1. Logowanie" << endl;
-		cout << "2. Usuwanie profilów" << endl;
+		cout << "2. Usuwanie profilow" << endl;
 		cout << "Inne. Wyjdz z programu" << endl;
+		cout << "Twoj wybor: ";
 		cin >> wybor;
 		system("CLS");
 		switch(wybor)
@@ -23,8 +24,9 @@ void Menu::Start(BazaUzytkownikow baza)
 
 				system("CLS");
 				break;
+			
 			case 2:
-				cout << "Podaj login do usuniecia" << endl;
+				cout << "Podaj login do usuniecia: ";
 				cin >> login;
 				baza.Usun(login);
 				baza.Serializuj();
@@ -40,15 +42,15 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 	int wybor;
 	int ilosc;
 	string nazwa;
-	uzytkownik.Deserializuj();
+	uzytkownik.Serializuj();
 	do
 	{
-
 		cout << "1. Dodaj produkt" << endl;
 		cout << "2. Zobacz zawartosc lodowki" << endl;
 		cout << "3. Twoj kalendarz" << endl;
-		cout << "4. Usuñ produkt" << endl;
+		cout << "4. Usun produkt" << endl;
 		cout << "Inny. Wyloguj" << endl;
+		cout << "Twoj wybor: ";
 		cin >> wybor;
 
 		switch(wybor)
@@ -61,31 +63,27 @@ void Menu::Zalogowany(Uzytkownik uzytkownik)
 		case 2:
 			system("CLS");
 			uzytkownik.Filtruj();
+			cout << endl;
 			break;
 
 		case 3:
-
-
 			system("CLS");
 			break;
 		case 4:
 			system("CLS");
 			uzytkownik.Filtruj();
-			cout << "Co chcesz usunac?" << endl;
+			cout << endl << "Podaj nazwe do usuniecia: ";
 			cin >> nazwa;
-			cout << "Ile?" << endl;
+			cout << "Podaj ilosc do usuniecia: ";
 			cin >> ilosc;
-
-			
-
-	
+				
 			for(int i=0; i<uzytkownik.getBaza().size(); i++)
 			{
 				if(uzytkownik.getBaza()[i]->ZwrocNazwa() == nazwa)
 				{
 					if(uzytkownik.getBaza()[i]->ZwrocIlosc() < ilosc)
 					{
-						cout<<"Nie masz tyle produktu"<<endl;
+						cout<<"Nie masz tyle produktu!"<<endl;
 						break;
 					}
 					else if(uzytkownik.getBaza()[i]->ZwrocIlosc() == ilosc)
@@ -123,19 +121,20 @@ void Menu::DodajJedzenie(Uzytkownik *uzytkownik)
 	cout << "4. Owoce" << endl;
 	cout << "5. Suchy Prowiant" << endl;
 	cout << "6. Warzywa" << endl;
+	cout << "Twoj wybor: ";
 	cin >> wybor;
 
-	cout << "Nazwa" << endl;
-	cin  >> nazwa;
-	cout << "Kalorie" << endl;
+	cout << endl << "Nazwa: ";
+	cin>>nazwa;
+	cout << "Kalorie: ";
 	cin  >> kalorie;
-	cout << "Bialko" << endl;
+	cout << "Bialko: ";
 	cin  >> bialko;
-	cout << "Weglowodany" << endl;
+	cout << "Weglowodany: ";
 	cin  >> weglowodany;
-	cout << "Tluszcze" << endl;
+	cout << "Tluszcze: ";
 	cin  >> tluszcze;
-	cout << "Ilosc" << endl;
+	cout << "Ilosc: ";
 	cin  >> ilosc;
 	switch(wybor)
 	{
@@ -144,7 +143,7 @@ void Menu::DodajJedzenie(Uzytkownik *uzytkownik)
 		system("CLS");
 		break;
 	case 2:
-		cout << "Jednostka  =  0.kg  /  1.ml" << endl;
+		cout << "Jednostka (0.kg  /  1.ml): ";
 		cin  >> jednostka;
 		if(jednostka == 0)
 			uzytkownik->Dodaj(new Nabial(nazwa, kalorie, bialko, weglowodany, tluszcze, ilosc, kg));

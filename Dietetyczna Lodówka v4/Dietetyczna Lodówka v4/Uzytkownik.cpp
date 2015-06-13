@@ -63,7 +63,6 @@ void Uzytkownik::WysietlUzytkownika() const
 {
 	cout << "Login: " << ZwrocLogin() << endl << "Imie i nazwisko: " << ZwrocImie() << " " << ZwrocNazwisko() << endl << "Wiek: " << ZwrocWiek() << endl << "Wzrost: " << ZwrocWzrost() 
 		<< endl << "Waga: " << ZwrocWaga() << endl << endl;
-	//printf("Login: %s \nImie i nazwisko: %s %s \nWiek: %d \nWzrost: %d \nWaga: %.1f \n",ZwrocLogin(),ZwrocImie(),ZwrocNazwisko(),ZwrocWiek(),ZwrocWzrost(),ZwrocWaga());
 }
 
 
