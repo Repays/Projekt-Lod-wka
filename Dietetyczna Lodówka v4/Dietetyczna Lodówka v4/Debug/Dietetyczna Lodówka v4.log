@@ -1,12 +1,31 @@
-﻿Build started 2015-06-13 20:31:28.
+﻿Build started 2015-06-14 15:38:28.
      1>Project "C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Dietetyczna Lodówka v4\Dietetyczna Lodówka v4.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Dietetyczna Lodówka v4.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Menu.cpp
+         Menu.cpp
+     1>c:\users\tomasz wspaniały\desktop\projekt-lodowka-master\dietetyczna lodówka v4\dietetyczna lodówka v4\menu.cpp(85): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\tomasz wspaniały\desktop\projekt-lodowka-master\dietetyczna lodówka v4\dietetyczna lodówka v4\menu.cpp(145): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\tomasz wspaniały\desktop\projekt-lodowka-master\dietetyczna lodówka v4\dietetyczna lodówka v4\menu.cpp(149): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Dietetyczna Lodówka v4.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.lib" /MACHINE:X86 Debug\BazaUzytkownikow.obj
+         Debug\Blad.obj
+         Debug\Magazyn.obj
+         Debug\Main.obj
+         Debug\Menu.obj
+         Debug\Mieso.obj
+         Debug\Nabial.obj
+         Debug\Napoje.obj
+         Debug\Owoce.obj
+         Debug\Plan.obj
+         Debug\Prowiant.obj
+         Debug\Uzytkownik.obj
+         Debug\Warzywa.obj
+         LINK : C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.exe not found or not built by the last incremental link; performing full link
          Dietetyczna Lodówka v4.vcxproj -> C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Tomasz Wspaniały\Desktop\Projekt-Lodowka-master\Dietetyczna Lodówka v4\Debug\Dietetyczna Lodówka v4.exe;#1" /manifest "Debug\Dietetyczna Lodówka v4.exe.intermediate.manifest"
        FinalizeBuildStatus:
          Deleting file "Debug\Dietetyczna Lodówka v4.unsuccessfulbuild".
          Touching "Debug\Dietetyczna Lodówka v4.lastbuildstate".
@@ -14,4 +33,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.92

@@ -231,3 +231,9 @@ float Uzytkownik::IleKalorii()
 	TEA_EPOC = TEA_EPOC/7;
 	return (BMR + TEA_EPOC + 300) + ((BMR + TEA_EPOC + 300)*0.08);
 }
+
+void Uzytkownik::stworzPlan()
+{ 
+	for(int i=0; i<7; i++)
+		plan.push_back(new Plan(i,IleKalorii())); 	
+}

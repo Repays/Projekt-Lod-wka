@@ -16,7 +16,7 @@ int main()
 		//users.Logowanie();
 		//users.Serializuj();
 
-		menu.Start(users);
+		menu.Start(&users);
 
 
 		

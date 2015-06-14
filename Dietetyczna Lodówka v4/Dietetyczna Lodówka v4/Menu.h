@@ -10,6 +10,9 @@
 #include "Owoce.h"
 #include "Prowiant.h"
 #include "Warzywa.h"
+#include "Stale.h"
+#include "Informacje.h"
+#include "Plan.h"
  
 using namespace std;
 
@@ -17,7 +20,8 @@ class Menu
 {
 public:
 	Menu(){};
-	void Start(BazaUzytkownikow baza);
-	void Zalogowany(Uzytkownik uzytkownik);
+	void Start(BazaUzytkownikow *baza);
+	void Zalogowany(Uzytkownik *uzytkownik);
 	void DodajJedzenie(Uzytkownik *uzytkownik);
+	void Kalendarz(Uzytkownik *uzytkownik);
 };

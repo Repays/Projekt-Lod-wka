@@ -69,6 +69,7 @@ void BazaUzytkownikow::Dodaj()
 					poprawny=true;
 				else
 				{
+					cout << "Podany login juz istnieje" << endl;
 					poprawny=false;
 					break;
 				}
@@ -205,7 +206,7 @@ int BazaUzytkownikow::Logowanie()
 	}
 	else
 	{
-		cout << "Wybierz 1. Dodaj uzytkownika" << endl << "Wybierz 2. Zaloguj sie" << endl << "Inne. aby wyjsc";
+		cout << "Wybierz 1. Dodaj uzytkownika" << endl << "Wybierz 2. Zaloguj sie" << endl << "Inne. aby wyjsc" << endl << "Twoj wybor: ";
 		cin >> menu;
 		system("CLS");
 		switch(menu)
